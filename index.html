@@ -7,7 +7,7 @@
 <meta name="description" content="CxOエージェント（運営：Beyondge株式会社）。現役の経営者と直接話し、キャリア面談を通じて経営ポジションを目指す。経営を経験した私たちと、本音であなたの次の一手を考えます。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --wine:#6E1B2E; --wine-d:#511325; --wine-ink:#2B1418; --wine-lt:#84263B;
@@ -17,7 +17,7 @@
   --ink:#2B221F; --body:#54483F; --muted:#857668;
   --line:rgba(43,34,31,.14); --line-on-wine:rgba(250,247,241,.22);
   --maxw:1240px; --pad:clamp(20px,5vw,40px);
-  --serif:"Noto Serif JP",serif; --en:"Cormorant Garamond",serif; --sans:"Noto Sans JP",sans-serif;
+  --serif:"Shippori Mincho B1","Noto Serif JP",serif; --en:"Inter","Noto Sans JP",sans-serif; --sans:"Noto Sans JP","Inter",sans-serif;
   /* ── luxurious gradients ── */
   --grad-gold:linear-gradient(135deg,#E2C56B 0%,#C2A14E 38%,#9A7A2E 72%,#E2C56B 100%);
   --grad-gold-soft:linear-gradient(135deg,#D8B85C,#A9842F);
@@ -33,21 +33,22 @@ img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:keep-all;line-height:1.5;letter-spacing:.02em}
 .inner{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
-.en{font-family:var(--en);font-weight:500;letter-spacing:.06em;font-style:italic}
+.en{font-family:var(--en);font-weight:600;letter-spacing:.06em}
 
-/* ── eyebrow (English serif label · FLUX signature) ── */
-.eyebrow{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
-.eyebrow .lab{font-family:var(--en);font-style:italic;font-weight:600;font-size:clamp(26px,3vw,34px);letter-spacing:.04em;line-height:1;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto}
-.eyebrow .ja{font-family:var(--serif);font-weight:600;font-size:12px;letter-spacing:.34em;color:var(--muted);transform:translateY(-2px)}
-.eyebrow .ja::before{content:"";display:inline-block;width:22px;height:1px;background:var(--grad-gold-soft);vertical-align:middle;margin-right:11px;transform:translateY(-2px)}
+/* ── eyebrow (small letterspaced gold label · mock style) ── */
+.eyebrow{display:inline-flex;align-items:center;gap:12px;margin-bottom:22px}
+.eyebrow .lab{font-family:var(--en);font-weight:600;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-d)}
+.eyebrow .lab::before{content:"";display:inline-block;width:26px;height:1px;background:var(--grad-gold-soft);vertical-align:middle;margin-right:12px;margin-bottom:3px}
+.eyebrow .ja{font-family:var(--serif);font-weight:700;font-size:12.5px;letter-spacing:.22em;color:var(--muted)}
+.eyebrow.on-wine .lab{color:var(--gold-lt)}
 .eyebrow.on-wine .ja{color:rgba(250,247,241,.72)}
 
 /* ── nav ── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s ease,box-shadow .4s ease,padding .4s ease;padding:22px 0}
 .nav .inner{display:flex;align-items:center;justify-content:space-between}
 .nav.scrolled{background:rgba(250,247,241,.92);backdrop-filter:saturate(1.1) blur(8px);-webkit-backdrop-filter:saturate(1.1) blur(8px);box-shadow:0 1px 0 var(--line);padding:14px 0}
-.brand{font-family:var(--en);font-style:italic;font-weight:600;font-size:24px;letter-spacing:.03em;color:var(--wine-ink);transition:color .4s ease}
-.brand small{font-family:var(--serif);font-style:normal;font-weight:600;font-size:10px;letter-spacing:.26em;display:block;margin-top:1px;color:var(--muted);transition:color .4s ease}
+.brand{font-family:var(--en);font-weight:700;font-size:22px;letter-spacing:.02em;color:var(--wine-ink);transition:color .4s ease;line-height:1.1}
+.brand small{font-family:var(--serif);font-weight:700;font-size:10px;letter-spacing:.24em;display:block;margin-top:2px;color:var(--muted);transition:color .4s ease}
 .nav.scrolled .brand{color:var(--wine)}
 .nav.scrolled .brand small{color:var(--muted)}
 .navlinks{display:flex;align-items:center;gap:30px}
@@ -60,7 +61,7 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 
 /* ── buttons ── */
 .btn{position:relative;display:inline-flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.05em;padding:18px 38px;border-radius:3px;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s,background .35s,color .35s,border-color .35s;transform:translateZ(0)}
-.btn .ar{position:relative;z-index:2;font-family:var(--en);font-style:italic;font-size:18px;transition:transform .4s}
+.btn .ar{position:relative;z-index:2;font-family:var(--en);font-size:17px;transition:transform .4s}
 .btn>span:not(.ar),.btn{}
 .btn::before{content:"";position:absolute;top:0;left:-120%;width:80%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);transition:left .7s cubic-bezier(.16,1,.3,1);z-index:1}
 .btn:hover::before{left:140%}
@@ -82,7 +83,7 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 
 /* ── 3D tilt (premium depth on hover) ── */
 .hv-tilt{position:relative;transform-style:preserve-3d}
-.hv-tilt,.mcard,.feat .shot{will-change:transform}
+.hv-tilt,.mcard{will-change:transform}
 .tilt-sheen{position:absolute;inset:0;border-radius:inherit;background:radial-gradient(440px circle at var(--mx,50%) var(--my,30%),rgba(226,197,107,.30),transparent 48%);opacity:0;transition:opacity .45s;pointer-events:none;z-index:4;mix-blend-mode:screen}
 
 @media (prefers-reduced-motion:reduce){
@@ -122,26 +123,39 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 .about p{font-size:16px;line-height:2.15;color:var(--body);max-width:680px;margin:0 auto}
 .about .rule{width:66px;height:2px;background:var(--grad-gold);margin:46px auto 0;border-radius:2px}
 
-/* ════ FEATURES (alternating editorial blocks) ════ */
-.feat{padding:clamp(56px,8vw,96px) 0}
-.feat .row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,84px);align-items:center;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
-.feat.rev .row{direction:rtl}
-.feat.rev .row>*{direction:ltr}
-.feat .shot{aspect-ratio:5/4;border-radius:4px;box-shadow:var(--shadow-lux)}
-.feat .ft-num{font-family:var(--en);font-style:italic;font-weight:600;font-size:clamp(32px,3.8vw,46px);letter-spacing:.04em;line-height:1;margin-bottom:18px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
-.feat .ft-num .en{font-size:.62em;letter-spacing:.16em}
-.feat .ft-num b{font-weight:600}
-.feat h3{font-size:clamp(21px,2.7vw,29px);line-height:1.55;margin-bottom:20px}
-.feat p{font-size:15.5px;line-height:2.1;color:var(--body);max-width:460px}
-.feat .tag{display:inline-block;margin-top:24px;font-family:var(--serif);font-weight:600;font-size:12px;letter-spacing:.16em;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
-.feat.wine{background:var(--grad-wine);color:rgba(250,247,241,.86);position:relative;overflow:hidden}
-.feat.wine::before{content:"";position:absolute;top:-30%;right:-8%;width:520px;height:520px;background:radial-gradient(closest-side,rgba(226,197,107,.14),transparent 70%);pointer-events:none}
-.feat.wine::after{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(226,197,107,.5),transparent)}
-.feat.wine .row{position:relative;z-index:1}
-.feat.wine h3{color:var(--cream)}
-.feat.wine p{color:rgba(250,247,241,.82)}
-.feat.wine .tag{color:rgba(250,247,241,.6);border-color:var(--line-on-wine)}
-.feat.wine .shot::after{background:linear-gradient(150deg,rgba(43,20,24,.10),rgba(43,20,24,.34))}
+/* ── premium pictogram (engraved gold medallion) ── */
+.ico-wrap{width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid transparent;background:linear-gradient(var(--paper),#fff) padding-box,var(--grad-gold) border-box;box-shadow:0 12px 26px -16px rgba(43,16,24,.3),inset 0 1px 0 rgba(255,255,255,.6)}
+.ico-wrap svg{width:27px;height:27px;color:var(--gold-d);fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.on-wine-ico .ico-wrap{background:linear-gradient(rgba(250,247,241,.06),rgba(250,247,241,.02)) padding-box,var(--grad-gold) border-box}
+.on-wine-ico .ico-wrap svg{color:var(--gold-lt)}
+
+/* ════ COMPANY LOGO MARQUEE ════ */
+.logos{padding:clamp(34px,5vw,52px) 0;border-bottom:1px solid var(--line);background:rgba(250,247,241,.5)}
+.logos .cap{text-align:center;font-size:11.5px;letter-spacing:.18em;color:var(--muted);margin-bottom:26px;font-weight:500}
+.logos .cap b{color:var(--wine);font-weight:700}
+.marquee{position:relative;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:inline-flex;align-items:center;gap:clamp(40px,5vw,72px);white-space:nowrap;animation:marquee 42s linear infinite;will-change:transform}
+.logos:hover .marquee-track{animation-play-state:paused}
+.marquee-track img{height:30px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.62;transition:opacity .3s,filter .3s}
+.marquee-track img:hover{filter:grayscale(0);opacity:1}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ════ VALUES (3 across · pictograms) ════ */
+.values{padding:clamp(70px,9vw,120px) 0}
+.values .head{max-width:760px;margin:0 auto clamp(44px,5vw,62px);text-align:center}
+.values .head .eyebrow{justify-content:center}
+.values .head h2{font-size:clamp(24px,3.1vw,36px);line-height:1.5;margin-bottom:22px}
+.values .head h2 .accent{color:var(--wine)}
+.values .head p{font-size:15.5px;line-height:2.05;color:var(--body)}
+.vrow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,32px);max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.vcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:6px;padding:clamp(30px,3vw,42px) clamp(24px,2.4vw,34px);text-align:center;overflow:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s,border-color .5s;will-change:transform}
+.vcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-gold);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.vcard.is-hover{box-shadow:var(--shadow-lux);border-color:transparent}
+.vcard.is-hover::before{transform:scaleX(1)}
+.vcard .ico-wrap{margin:0 auto 24px}
+.vcard .vno{font-family:var(--en);font-weight:600;font-size:12px;letter-spacing:.2em;color:var(--gold-d);margin-bottom:12px}
+.vcard h3{font-size:clamp(18px,2vw,21px);line-height:1.6;margin-bottom:16px}
+.vcard p{font-size:14px;line-height:2;color:var(--body);text-align:left}
 
 /* ════ MEMBERS ════ */
 .members{padding:clamp(86px,11vw,140px) 0;background:var(--paper)}
@@ -170,7 +184,8 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 .step::before{content:"";position:absolute;top:0;left:0;right:18px;height:2px;background:var(--grad-gold);border-radius:2px}
 .step+.step{padding-left:26px}
 .step+.step::before{left:26px}
-.step .n{font-family:var(--en);font-style:italic;font-weight:600;font-size:44px;line-height:1;margin-bottom:18px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.step .ico-wrap{margin:0 0 20px}
+.step .n{font-family:var(--en);font-weight:600;font-size:12px;letter-spacing:.2em;color:var(--gold-d);margin-bottom:10px}
 .step h3{font-size:17px;line-height:1.6;margin-bottom:13px;color:var(--ink)}
 .step p{font-size:13.5px;line-height:1.95;color:var(--body)}
 
@@ -181,7 +196,7 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 .voice .head .note{font-size:12px;letter-spacing:.1em;color:var(--wine-d)}
 .vgrid{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(22px,3vw,46px);align-items:start}
 .vquote{color:var(--wine-ink)}
-.vquote .mk{font-family:var(--en);font-style:italic;font-size:54px;line-height:.6;display:block;margin-bottom:8px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vquote .mk{font-family:var(--serif);font-weight:700;font-size:48px;line-height:.7;display:block;margin-bottom:6px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .vquote.lead p{font-family:var(--serif);font-weight:600;font-size:clamp(18px,2.2vw,24px);line-height:1.85}
 .vquote p{font-family:var(--serif);font-weight:500;font-size:15.5px;line-height:1.95}
 .vquote .who{margin-top:20px;font-size:12px;letter-spacing:.1em;color:var(--wine-d);font-family:var(--sans)}
@@ -217,16 +232,17 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 .foot .flinks{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:12.5px}
 .foot .flinks a{opacity:.78;transition:opacity .3s}
 .foot .flinks a:hover{opacity:1}
-.foot .copy{width:100%;border-top:1px solid var(--line-on-wine);margin-top:36px;padding-top:24px;font-family:var(--en);font-style:italic;font-size:13px;letter-spacing:.06em;color:rgba(250,247,241,.55)}
+.foot .copy{width:100%;border-top:1px solid var(--line-on-wine);margin-top:36px;padding-top:24px;font-family:var(--en);font-weight:500;font-size:12.5px;letter-spacing:.08em;color:rgba(250,247,241,.55)}
 
 /* ════ RESPONSIVE ════ */
 @media(max-width:960px){
   .hero{min-height:auto;padding:118px 0 64px}
   .hero-bg img{object-position:72% center}
   .hero-bg::after{background:linear-gradient(108deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.86) 42%,rgba(250,247,241,.46) 74%,rgba(250,247,241,.08) 100%)}
-  .feat .row{grid-template-columns:1fr;gap:32px}
-  .feat.rev .row{direction:ltr}
-  .feat .shot{aspect-ratio:16/10}
+  .vrow{grid-template-columns:1fr;gap:18px;max-width:560px}
+  .vcard{text-align:left}
+  .vcard .ico-wrap{margin:0 0 20px}
+  .marquee-track img{height:26px}
   .mgrid{grid-template-columns:repeat(2,1fr);gap:30px}
   .flow .steps{grid-template-columns:repeat(2,1fr)}
   .step{padding:30px 20px 30px 0!important}
@@ -286,6 +302,17 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
   </div>
 </section>
 
+<!-- COMPANY LOGOS (marquee) -->
+<section class="logos" aria-label="ご縁のある企業">
+  <p class="cap">経営人材が<b>活躍する企業</b>・ご縁のあるネットワーク（一部・順不同）</p>
+  <div class="marquee">
+    <div class="marquee-track">
+      <img src="assets/logos/jr-west.png" alt="JR西日本"><img src="assets/logos/honda.png" alt="Honda"><img src="assets/logos/nttdata.png" alt="NTTデータ"><img src="assets/logos/cyberagent.png" alt="サイバーエージェント"><img src="assets/logos/dxc.png" alt="DXC Technology"><img src="assets/logos/newone.png" alt="NEWONE"><img src="assets/logos/gixo.png" alt="GiXO"><img src="assets/logos/prtable.png" alt="PR TABLE"><img src="assets/logos/trailblazer.png" alt="Trailblazer"><img src="assets/logos/senxeed.jpg" alt="Senxeed"><img src="assets/logos/pontely.png" alt="Pontely">
+      <img src="assets/logos/jr-west.png" alt="" aria-hidden="true"><img src="assets/logos/honda.png" alt="" aria-hidden="true"><img src="assets/logos/nttdata.png" alt="" aria-hidden="true"><img src="assets/logos/cyberagent.png" alt="" aria-hidden="true"><img src="assets/logos/dxc.png" alt="" aria-hidden="true"><img src="assets/logos/newone.png" alt="" aria-hidden="true"><img src="assets/logos/gixo.png" alt="" aria-hidden="true"><img src="assets/logos/prtable.png" alt="" aria-hidden="true"><img src="assets/logos/trailblazer.png" alt="" aria-hidden="true"><img src="assets/logos/senxeed.jpg" alt="" aria-hidden="true"><img src="assets/logos/pontely.png" alt="" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="inner">
@@ -296,53 +323,34 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
   </div>
 </section>
 
-<!-- FEATURES -->
-<div id="features">
-  <section class="feat wine">
-    <div class="row">
-      <div class="shot rv">
-        <!-- TODO: Beyondge実撮影（経営者との1on1対話）に差し替え -->
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1100&q=80" alt="現役の経営者が相談に応じている様子">
-      </div>
-      <div class="ft-text rv rv-d1">
-        <div class="ft-num"><span class="en">Value</span> <b>01</b></div>
-        <h3>現役の経営者と、<br>直接話せる。</h3>
-        <p>担当するのはエージェントではなく、いま自ら会社を経営している人間です。机上の助言ではなく、経営の現場で考え、迷い、決めてきた本音の視点から、あなたのキャリアに向き合います。</p>
-        <span class="tag">現役経営者が担当</span>
-      </div>
+<!-- VALUES (3 across) -->
+<section class="values" id="features">
+  <div class="head">
+    <div class="eyebrow rv"><span class="lab">Value</span><span class="ja">提供する価値</span></div>
+    <h2 class="rv rv-d1">経営の当事者だからこそ、<br><span class="accent">渡せる価値</span>があります。</h2>
+    <p class="rv rv-d2">人材紹介にとどまらず、経営者と話し、キャリア面談を通じて、経営ポジションを目指すキャリアアップを支援します。</p>
+  </div>
+  <div class="vrow">
+    <div class="vcard rv rv-d1">
+      <div class="ico-wrap"><svg viewBox="0 0 24 24"><path d="M20.5 11.4a7.5 7.5 0 0 1-10.6 6.8L4 20l1.7-5.4A7.5 7.5 0 1 1 20.5 11.4Z"/><path d="M8.6 11h7M8.6 14h4"/></svg></div>
+      <div class="vno">Value 01</div>
+      <h3>現役の経営者と、直接話せる</h3>
+      <p>担当するのはエージェントではなく、いま自ら会社を経営している人間です。机上の助言ではなく、経営の現場で考え、決めてきた本音の視点から、あなたのキャリアに向き合います。</p>
     </div>
-  </section>
-
-  <section class="feat rev">
-    <div class="row">
-      <div class="shot rv">
-        <!-- TODO: Beyondge実撮影（キャリア面談の様子）に差し替え -->
-        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1100&q=80" alt="キャリア面談で経営ポジションへの道筋を描いている様子">
-      </div>
-      <div class="ft-text rv rv-d1">
-        <div class="ft-num"><span class="en">Value</span> <b>02</b></div>
-        <h3>キャリア面談で、<br>経営ポジションへ。</h3>
-        <p>経営者とのキャリア面談を通じて、CFO・COO・CTO・事業本部長など、経営ポジションを目指すキャリアアップを一緒に設計します。今の延長ではなく、&ldquo;経営できる人&rdquo;になるための次の一手を考えます。</p>
-        <span class="tag">経営ポジションへの設計</span>
-      </div>
+    <div class="vcard rv rv-d2">
+      <div class="ico-wrap"><svg viewBox="0 0 24 24"><path d="M3 17l5.5-5.5 3.5 3.5L21 6"/><path d="M15.5 6H21v5.5"/></svg></div>
+      <div class="vno">Value 02</div>
+      <h3>キャリア面談で、経営ポジションへ</h3>
+      <p>経営者とのキャリア面談を通じて、CFO・COO・CTO・事業本部長など、経営ポジションを目指すキャリアアップを一緒に設計します。今の延長ではない次の一手を考えます。</p>
     </div>
-  </section>
-
-  <section class="feat wine">
-    <div class="row">
-      <div class="shot rv">
-        <!-- TODO: Beyondge実撮影（経営者の集まり・場）に差し替え -->
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1100&q=80" alt="経営者同士のつながりから機会が生まれる様子">
-      </div>
-      <div class="ft-text rv rv-d1">
-        <div class="ft-num"><span class="en">Value</span> <b>03</b></div>
-        <h3>経営者の縁から、<br>機会が生まれる。</h3>
-        <p>経営者同士のつながりを通じて、通常は表に出ない経営の場・ポジション（求人）をご紹介します。Beyondgeという組織が築いてきたネットワークから、あなたに合う機会を見立てます。</p>
-        <span class="tag">独自ネットワークからの機会</span>
-      </div>
+    <div class="vcard rv rv-d3">
+      <div class="ico-wrap"><svg viewBox="0 0 24 24"><circle cx="5.5" cy="6.5" r="2.2"/><circle cx="18.5" cy="7.5" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.4 7.7 10.6 15.9M16.6 9 13.2 16M7.6 6.8h8.8"/></svg></div>
+      <div class="vno">Value 03</div>
+      <h3>経営者の縁から、機会が生まれる</h3>
+      <p>経営者同士のつながりを通じて、通常は表に出ない経営の場・ポジション（求人）をご紹介します。Beyondgeという組織が築いてきたネットワークから、あなたに合う機会を見立てます。</p>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
 <!-- MEMBERS -->
 <section class="members" id="members">
@@ -353,17 +361,17 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
   </div>
   <div class="mgrid">
     <div class="mcard rv rv-d1">
-      <div class="shot"><!-- TODO: 野上さん実写真に差し替え --><img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=600&q=80" alt="野上 隆徳"></div>
+      <div class="ph"><!-- TODO: 野上さん実写真に差し替え --><span class="ini">N</span><span class="soon">写真準備中</span></div>
       <div class="mname">野上 隆徳</div>
       <div class="mrole">Beyondge株式会社<br>代表取締役</div>
     </div>
     <div class="mcard rv rv-d2">
-      <div class="shot"><!-- TODO: 小高さん実写真に差し替え --><img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=600&q=80" alt="小高 康太"></div>
+      <div class="ph"><!-- TODO: 小高さん実写真に差し替え --><span class="ini">K</span><span class="soon">写真準備中</span></div>
       <div class="mname">小高 康太</div>
       <div class="mrole">Beyondge株式会社<br>COO</div>
     </div>
     <div class="mcard rv rv-d3">
-      <div class="shot"><!-- TODO: 吉川さん実写真に差し替え --><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="吉川 隼大"></div>
+      <div class="shot"><img src="assets/yoshikawa.jpg" alt="吉川 隼大"></div>
       <div class="mname">吉川 隼大</div>
       <div class="mrole">株式会社プレイバッカーズ<br>代表取締役</div>
     </div>
@@ -383,10 +391,22 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
     <h2 class="rv rv-d1">まずは、経営者と話すことから。</h2>
   </div>
   <div class="steps">
-    <div class="step rv rv-d1"><div class="n">01</div><h3>経営者と話す</h3><p>まずは気軽に、想いや現在の状況をお聞かせください。</p></div>
-    <div class="step rv rv-d2"><div class="n">02</div><h3>現在地を整理する</h3><p>経験・強み・志向性を整理し、経営に近づく可能性を探ります。</p></div>
-    <div class="step rv rv-d3"><div class="n">03</div><h3>機会を見立てる</h3><p>あなたにフィットする役割・ポジションの可能性を見立てます。</p></div>
-    <div class="step rv rv-d3"><div class="n">04</div><h3>次の一手を決める</h3><p>実行プランを一緒に設計し、一歩を踏み出す伴走をします。</p></div>
+    <div class="step rv rv-d1">
+      <div class="ico-wrap"><svg viewBox="0 0 24 24"><path d="M20.5 11.4a7.5 7.5 0 0 1-10.6 6.8L4 20l1.7-5.4A7.5 7.5 0 1 1 20.5 11.4Z"/><path d="M8.6 11h7M8.6 14h4"/></svg></div>
+      <div class="n">Step 01</div><h3>経営者と話す</h3><p>まずは気軽に、想いや現在の状況をお聞かせください。</p>
+    </div>
+    <div class="step rv rv-d2">
+      <div class="ico-wrap"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4.5h6V7H9z"/><path d="M8.5 11.5h7M8.5 15h5"/></svg></div>
+      <div class="n">Step 02</div><h3>現在地を整理する</h3><p>経験・強み・志向性を整理し、経営に近づく可能性を探ります。</p>
+    </div>
+    <div class="step rv rv-d3">
+      <div class="ico-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.2"/><path d="M12 1.8V4M12 20v2.2M22.2 12H20M4 12H1.8"/></svg></div>
+      <div class="n">Step 03</div><h3>機会を見立てる</h3><p>あなたにフィットする役割・ポジションの可能性を見立てます。</p>
+    </div>
+    <div class="step rv rv-d3">
+      <div class="ico-wrap"><svg viewBox="0 0 24 24"><path d="M6 21V3.5"/><path d="M6 4.5h11l-2.6 3.4L17 11.4H6"/></svg></div>
+      <div class="n">Step 04</div><h3>次の一手を決める</h3><p>実行プランを一緒に設計し、一歩を踏み出す伴走をします。</p>
+    </div>
   </div>
 </section>
 
@@ -469,11 +489,11 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
   if(!reduce && fine){
-    var tiltEls = document.querySelectorAll('.hv-tilt, .mcard, .feat .shot');
+    var tiltEls = document.querySelectorAll('.hv-tilt, .mcard, .vcard');
     tiltEls.forEach(function(el){
-      var host = el.classList.contains('shot') ? el : (el.querySelector('.shot') || el.querySelector('.ph') || el);
+      var host = el.classList.contains('vcard') ? el : (el.querySelector('.shot') || el.querySelector('.ph') || el);
       var sheen = document.createElement('span'); sheen.className='tilt-sheen'; host.appendChild(sheen);
-      var MAX = el.classList.contains('mcard') ? 6 : (el.classList.contains('hv-tilt') ? 9 : 7);
+      var MAX = el.classList.contains('vcard') ? 4 : (el.classList.contains('mcard') ? 6 : 9);
       var raf=null;
       el.addEventListener('pointermove', function(e){
         var r=el.getBoundingClientRect();
