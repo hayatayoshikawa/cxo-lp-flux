@@ -46,12 +46,12 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s ease,box-shadow .4s ease,padding .4s ease;padding:22px 0}
 .nav .inner{display:flex;align-items:center;justify-content:space-between}
 .nav.scrolled{background:rgba(250,247,241,.92);backdrop-filter:saturate(1.1) blur(8px);-webkit-backdrop-filter:saturate(1.1) blur(8px);box-shadow:0 1px 0 var(--line);padding:14px 0}
-.brand{font-family:var(--en);font-style:italic;font-weight:600;font-size:23px;letter-spacing:.03em;color:var(--cream);transition:color .4s ease}
-.brand small{font-family:var(--serif);font-style:normal;font-weight:600;font-size:10px;letter-spacing:.28em;display:block;margin-top:1px;color:rgba(250,247,241,.7);transition:color .4s ease}
+.brand{font-family:var(--en);font-style:italic;font-weight:600;font-size:24px;letter-spacing:.03em;color:var(--wine-ink);transition:color .4s ease}
+.brand small{font-family:var(--serif);font-style:normal;font-weight:600;font-size:10px;letter-spacing:.26em;display:block;margin-top:1px;color:var(--muted);transition:color .4s ease}
 .nav.scrolled .brand{color:var(--wine)}
 .nav.scrolled .brand small{color:var(--muted)}
 .navlinks{display:flex;align-items:center;gap:30px}
-.navlinks a{font-size:13px;letter-spacing:.06em;color:rgba(250,247,241,.92);transition:color .3s,opacity .3s}
+.navlinks a{font-size:13px;letter-spacing:.06em;color:var(--ink);transition:color .3s,opacity .3s}
 .nav.scrolled .navlinks a{color:var(--body)}
 .navlinks a:hover{opacity:.62}
 .navlinks .nav-cta{font-family:var(--serif);font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--cream)!important;background:var(--wine);padding:11px 22px;border-radius:2px;transition:background .3s}
@@ -97,27 +97,21 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(110,27,46,.34),rgba(43,20,24,.20));mix-blend-mode:multiply;pointer-events:none}
 .shot::before{content:"";position:absolute;inset:0;background:var(--paper);mix-blend-mode:screen;opacity:.10;pointer-events:none;z-index:1}
 
-/* ════ HERO ════ */
-.hero{padding:150px 0 90px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;top:-18%;right:-14%;width:54%;height:135%;background:radial-gradient(closest-side,rgba(226,197,107,.20),rgba(244,237,224,.5) 55%,transparent 75%);border-radius:50%;z-index:0;filter:blur(6px)}
-.hero::after{content:"";position:absolute;left:-12%;bottom:-30%;width:46%;height:90%;background:radial-gradient(closest-side,rgba(110,27,46,.10),transparent 70%);z-index:0}
-.hero .inner{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(30px,5vw,72px);align-items:center;perspective:1500px}
-.hero-copy{max-width:560px}
-.hero h1{font-size:clamp(31px,4.6vw,56px);line-height:1.42;letter-spacing:.01em;color:var(--ink);margin:18px 0 26px}
+/* ════ HERO (full-bleed photo · faithful to comp) ════ */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;padding:132px 0 84px;overflow:hidden;background:#e7e0d2}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:66% center}
+.hero-bg::before{content:"";position:absolute;top:0;left:0;right:0;height:150px;background:linear-gradient(180deg,rgba(250,247,241,.72),transparent);z-index:2}
+.hero-bg::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(98deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.9) 24%,rgba(250,247,241,.56) 45%,rgba(250,247,241,.14) 65%,rgba(250,247,241,0) 82%)}
+.hero .inner{position:relative;z-index:3;width:100%}
+.hero-copy{max-width:610px}
+.hero h1{font-size:clamp(30px,4.5vw,54px);line-height:1.5;letter-spacing:.012em;color:var(--ink);margin:0 0 26px;text-shadow:0 1px 1px rgba(250,247,241,.5)}
+.hero h1 .q{color:var(--ink)}
 .hero h1 .accent{color:var(--wine)}
-.hero h1 .q{font-family:var(--en);font-style:italic;font-weight:500;color:var(--wine)}
-.hero-sub{font-size:16px;line-height:2.1;color:var(--body);margin-bottom:36px}
-.hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-.hero-note{margin-top:24px;font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+.hero-sub{font-size:clamp(15px,1.35vw,17px);line-height:2.05;color:var(--body);margin-bottom:34px;max-width:440px}
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-note{margin-top:22px;font-size:12.5px;color:var(--muted);letter-spacing:.02em}
 .hero-note::before{content:"●";color:var(--gold);font-size:7px;vertical-align:middle;margin-right:8px}
-.hero-visual{position:relative;transform-style:preserve-3d}
-.hero-visual.float{animation:floaty 7s ease-in-out infinite}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.hero-visual .shot{aspect-ratio:4/4.6;border-radius:4px;box-shadow:var(--shadow-lux)}
-.hero-visual .shot::before{background:linear-gradient(160deg,rgba(226,197,107,.18),transparent 50%);mix-blend-mode:screen;opacity:.5}
-.hero-visual .frame{position:absolute;inset:-16px -16px auto auto;width:64%;height:64%;border-radius:4px;z-index:-1;background:var(--grad-gold);padding:1px;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
-.hero-cap{position:absolute;left:-18px;bottom:30px;background:var(--grad-wine);color:var(--cream);font-family:var(--serif);font-weight:600;font-size:13px;letter-spacing:.08em;padding:13px 20px;border-radius:3px;box-shadow:0 18px 36px -16px rgba(43,16,24,.7),inset 0 0 0 1px rgba(226,197,107,.35);transform:translateZ(60px)}
-.hero-cap .en{font-style:italic;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:8px}
 
 /* ════ ABOUT (Features overview) ════ */
 .about{padding:clamp(86px,11vw,140px) 0 clamp(40px,6vw,70px)}
@@ -227,10 +221,9 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 
 /* ════ RESPONSIVE ════ */
 @media(max-width:960px){
-  .hero{padding:128px 0 70px}
-  .hero .inner{grid-template-columns:1fr;gap:48px}
-  .hero-visual{max-width:440px;margin:0 auto}
-  .hero::before{display:none}
+  .hero{min-height:auto;padding:118px 0 64px}
+  .hero-bg img{object-position:72% center}
+  .hero-bg::after{background:linear-gradient(108deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.86) 42%,rgba(250,247,241,.46) 74%,rgba(250,247,241,.08) 100%)}
   .feat .row{grid-template-columns:1fr;gap:32px}
   .feat.rev .row{direction:ltr}
   .feat .shot{aspect-ratio:16/10}
@@ -248,9 +241,10 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
   .form{grid-template-columns:1fr}
   .mgrid{grid-template-columns:1fr 1fr;gap:22px}
   .foot .inner{flex-direction:column}
-  .hero-cap{left:10px}
+  .hero-bg::after{background:linear-gradient(176deg,rgba(250,247,241,.93) 0%,rgba(250,247,241,.78) 52%,rgba(250,247,241,.66) 100%)}
+  .hero-copy{max-width:100%}
   .eyebrow .lab{font-size:23px}
-  .hero h1{font-size:28px;line-height:1.5}
+  .hero h1{font-size:27px;line-height:1.55}
   .about h2{font-size:19px;line-height:1.74}
   .feat h3{font-size:20px}
   .entry h2{font-size:22px}
@@ -277,26 +271,17 @@ h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;word-break:ke
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="assets/hero.jpg" alt="経営者同士が本音でキャリアについて対話している様子">
+  </div>
   <div class="inner">
     <div class="hero-copy">
-      <div class="eyebrow rv"><span class="lab">For Future Leaders</span><span class="ja">ＣＸＯエージェント</span></div>
-      <h1 class="rv rv-d1"><span class="q">&ldquo;経営できる人&rdquo;</span>になるキャリアを、<br><span class="accent">経営者</span>と。</h1>
-      <p class="hero-sub rv rv-d2">経営を目指すあなたの次の一手を、<br>経営を経験した私たちと、本音で考える。</p>
-      <div class="hero-actions rv rv-d3">
-        <a href="#contact" class="btn btn-gold">経営者と話してみる<span class="ar">&rarr;</span></a>
-        <a href="#about" class="btn btn-ghost">CxOエージェントとは</a>
+      <h1 class="rv"><span class="q">&ldquo;経営できる人&rdquo;</span>になる<br>キャリアを、<span class="accent">経営者</span>と。</h1>
+      <p class="hero-sub rv rv-d1">経営を目指すあなたの次の一手を、<br>経営を経験した私たちと、本音で考える。</p>
+      <div class="hero-actions rv rv-d2">
+        <a href="#contact" class="btn btn-wine">経営者と話してみる<span class="ar">&rarr;</span></a>
       </div>
-      <p class="hero-note rv rv-d3">ご相談はキャリアを考える場です（応募・選考ではありません）。</p>
-    </div>
-    <div class="hero-visual float rv rv-d2">
-      <div class="hv-tilt">
-        <div class="frame"></div>
-        <div class="shot">
-          <!-- TODO: Beyondgeの実撮影素材（経営者が相談している対話シーン）に差し替え -->
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80" alt="経営者とキャリアについて対話している様子">
-        </div>
-        <span class="hero-cap"><span class="en">Talk</span>まず、経営者と話す。</span>
-      </div>
+      <p class="hero-note rv rv-d2">ご相談はキャリアを考える場です（応募・選考ではありません）。</p>
     </div>
   </div>
 </section>
